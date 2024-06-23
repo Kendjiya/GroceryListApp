@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": "8fda",
+      "name": "Bread",
+      "bought": false,
+      "quantity": 4
+    },
+    {
+      "id": "338e",
+      "name": "Milk",
+      "bought": false,
+      "quantity": 1
+    },
+    {
+      "id": "3e09",
+      "name": "Honey",
+      "bought": false,
+      "quantity": 1
+    },
+    {
+      "id": "5d9f",
+      "name": "Candy",
+      "bought": false,
+      "quantity": 3
+    },
+    {
+      "id": "46c7",
+      "name": "Chocolate",
+      "bought": false,
+      "quantity": 2
+    },
+    {
+      "id": "b93b",
+      "name": "Cheese",
+      "bought": false,
+      "quantity": 99
+    }
+  ]
+}

@@ -102,6 +102,24 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    flavorDimensions "main"
+    productFlavors {
+        all { flavor ->
+            task("${flavor.name}AppConfig", type: Copy, dependsOn: "createBundle${flavor.name}DebugJsAndAssets") {
+                description = 'Copies app config for selected build variant'
+                from "src/${flavor.name}/appConfig"
+                include "index.ts"
+                into "../../src/appConfig"
+            }
+        }
+        GroceryListAppStaging {
+            applicationId "com.grocerylistapp"
+        }
+        GroceryListAppProd {
+            applicationId "com.grocerylistapp"
+        }
+    }
+
 }
 
 dependencies {
@@ -112,6 +130,14 @@ dependencies {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
+    }
+}
+
+afterEvaluate {
+    android.productFlavors.all {
+        flavor ->
+            tasks."generate${flavor.name.capitalize()}DebugResources".dependsOn "${flavor.name}AppConfig"
+            tasks."pre${flavor.name.capitalize()}ReleaseBuild".dependsOn "${flavor.name}AppConfig"
     }
 }
 

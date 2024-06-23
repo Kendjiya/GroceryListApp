@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "id": "5e4d",
+      "name": "This is prod env",
+      "bought": false,
+      "quantity": 1
+    }
+  ]
+}
